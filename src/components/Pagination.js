@@ -9,6 +9,7 @@ const Pagination = ({ currentPage, totalPosts, postsPerPage, paginate }) => {
         return (
             <div
                 key={number}
+                className="item"
                 onClick={() => paginate(number)}>
                 {number}
             </div>
@@ -16,7 +17,7 @@ const Pagination = ({ currentPage, totalPosts, postsPerPage, paginate }) => {
     })
 
     return (
-        <div>
+        <div className="ui pagination menu">
             {renderPagination}
         </div>
     )

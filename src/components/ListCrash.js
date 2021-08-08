@@ -11,7 +11,8 @@ const ListCrash = ({ list, setCrashDetails }) => {
                 <div className="content">
                     <div className="header">{crash.collision_id}</div>
                     <div className="meta">
-                        {crash_date} | {crash.crash_time}</div>
+                        {crash_date} | {crash.crash_time}
+                    </div>
                     <div className="description">
                         <p>{crash.vehicle_type_code1}</p>
                         {crash.on_street_name &&
@@ -31,8 +32,18 @@ const ListCrash = ({ list, setCrashDetails }) => {
     })
 
     return (
-        <div className="ui cards">
-            {renderList}
+        <div>
+            <h2 className="ui header">
+                <i className="list icon"></i>
+                <div className="content">
+                    List of Collisions
+                </div>
+            </h2>
+            <div class="ui hidden divider"></div>
+            <div className="ui cards">
+                {renderList}
+            </div>
+            <div class="ui hidden divider"></div>
         </div>
     )
 }

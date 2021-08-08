@@ -10,14 +10,14 @@ const App = () => {
   const [crashes, setCrashes] = useState([])
   const [crashDetails, setCrashDetails] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage, setPostsPerPage] = useState(20)
+  const [postsPerPage, setPostsPerPage] = useState(500)
 
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get('https://data.cityofnewyork.us/resource/h9gi-nx95.json')
       setCrashes(data)
       setCrashDetails(data[0])
-      setPostsPerPage(20)
+      setPostsPerPage(50)
     }
 
     getData()
@@ -33,6 +33,7 @@ const App = () => {
 
   return (
     <div>
+      <div class="ui hidden divider"></div>
       <Route exact path="/">
         <ListCrash list={currentList} setCrashDetails={setCrashDetails} />
         <Pagination currentPage={currentPage} postsPerPage={postsPerPage} totalPosts={crashes.length} paginate={paginate} />
